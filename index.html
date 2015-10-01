@@ -1,0 +1,96 @@
+<html>
+    <head>
+        <title>Who is doing what where in the European Refugee Crisis</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/dc.css"/>
+        <link rel="stylesheet" type="text/css" href="css/leaflet.css"/>
+        <link rel="stylesheet" type="text/css" href="css/introjs.css"/>
+        <link rel="stylesheet" type="text/css" href="css/site.css"/>
+        <script src="js/jquery.js"></script>
+        <script src="js/d3.min.js"></script>
+        <script src="js/crossfilter.v1.min.js"></script>
+        <script src="js/dc.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/dc.leaflet.js"></script>
+        <script src="js/d3.tip.min.js"></script>
+        <script src="js/intro.js"></script>
+        <script src="js/topojson.v1.min.js"></script>
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-46399763-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+                 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>         
+    </head>
+    <body>
+        <div class="container">
+            <div id="header" class="row">
+                <h2 id="title">Who, what, Where</h2>
+                <div class="col-md-7">  
+                    <p>Who is doing what and where in the European Refugee response.  Collected by <a href="http://blog.standbytaskforce.com/" target='_blank'>Standby Task Force</a> for <a href="http://www.internews.org/" target='_blank'>Internews</a>.  Data available <a href="https://docs.google.com/spreadsheets/d/170RjIlAFdphHYc8_vZcmsPnXyEVJ8moCkiLtZuWDBEY/edit#gid=1403235420">here</a>.  Made by <a href="https://twitter.com/Simon_B_Johnson" target='_blank'>Simon Johnson</a></p>
+                </div>
+                <div class="col-md-1">
+                    <a class="reset btn btn-primary btn-sm" id="intro">Help</a>
+                </div>                  
+                <div class="col-md-1">
+                    <a class="reset btn btn-primary btn-sm" id="reset" href="javascript:dc.filterAll();dc.redrawAll();">Reset All</a>
+                </div>                            
+                <div id="count-info" class="col-md-3">
+                    <span class="filter-count "></span> selected out of <span class="total-count "></span> records.
+                </div>                   
+            </div>
+            <div class="row" id="charts">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="viz" id="what"><p>Activity</p></div>
+                        </div> 
+                        <div class="col-md-6">
+                            <div class="viz" id="language"><p>Language</p></div>
+                        </div>                        
+                    </div>
+                </div>                
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p id="wheretitle">Where</p>
+                            <div class="viz" id="map"></div>
+                        </div> 
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="viz" id="orgtype"><p>Organisation Type</p></div>
+                        </div> 
+                    </div>                    
+                </div>
+            </div>  
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Data Table</h3>
+                    <table class="table table-hover" id="data-table">
+                      <thead>
+                        <tr class="header" id="tabletip">
+                          <th>Organization name</th>
+                          <th>Organization type</th>
+                          <th>Service description</th>
+                          <th>Service type</th>
+                          <th>Service country</th>
+                          <th>Service town(s)</th>
+                          <th>Language(s)</th>
+                          <th>URL</th>                          
+                        </tr>
+                      </thead>
+                    </table>
+                </div>
+            </div>            
+        </div>
+        <script src="js/site.js"></script> 
+    </body>
+</html>
