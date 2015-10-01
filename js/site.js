@@ -192,7 +192,10 @@ function generateDash(data,geom){
     d3.selectAll('g.row').on('mouseover', rowtip.show).on('mouseout', rowtip.hide);
 
     d3.selectAll('.pie-slice').call(pietip);
-    d3.selectAll('.pie-slice').on('mouseover', pietip.show).on('mouseout', pietip.hide);      
+    d3.selectAll('.pie-slice').on('mouseover', pietip.show).on('mouseout', pietip.hide);
+
+    map = mapChart.map();
+    map.scrollWheelZoom.disable();          
     /*
     var g = d3.selectAll('#hdx-3W-who').select('svg').append('g');
     
