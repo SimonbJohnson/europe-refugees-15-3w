@@ -67,6 +67,8 @@ function generateDash(data,geom){
     var whatGroup = whatDimension.groupAll().reduce(buildReduceAdd('#activity+type'), buildReduceRemove('#activity+type'), reduceInitial).value();
     whatGroup.all = newAll;
 
+    console.log(whatDimension.group().top(Infinity));
+
     var languageGroup = languageDimension.groupAll().reduce(buildReduceAdd('#x_language'), buildReduceRemove('#x_language'), reduceInitial).value();
     languageGroup.all = newAll;
 
@@ -254,6 +256,11 @@ function hxlProxyToJSON(input,headers){
 function explodeColumn(data,column){
     data.forEach(function(r){
         r[column] = r[column].replace(', ',',').split(',');
+        r[column].forEach(function(d,i){
+            if(d.substring(0,1)==' '){
+                r[column][i]=d.substring(1);
+            }
+        });
     });
     return data;
 }
@@ -288,7 +295,7 @@ $('#intro').click(function(){
 
 var dataCall = $.ajax({ 
     type: 'GET', 
-    url: 'http://proxy.hxlstandard.org/data.json?url=https%3A//docs.google.com/spreadsheets/d/13PwuKSDfhRc4MjJs_k8dBknFY3lQ7_TyChtS-_uOxM0/pub%3Foutput%3Dcsv&strip-headers=on', 
+    url: 'http://proxy.hxlstandard.org/data.json?url=https%3A//docs.google.com/spreadsheets/d/13PwuKSDfhRc4MjJs_k8dBknFY3lQ7_TyChtS-_uOxM0/pub%3Foutput%3Dcsv&strip-headers=on&force=1',
     dataType: 'json',
 });
 
