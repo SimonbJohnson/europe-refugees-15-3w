@@ -295,7 +295,7 @@ $('#intro').click(function(){
 
 var dataCall = $.ajax({ 
     type: 'GET', 
-    url: 'http://proxy.hxlstandard.org/data.json?url=https%3A//docs.google.com/spreadsheets/d/13PwuKSDfhRc4MjJs_k8dBknFY3lQ7_TyChtS-_uOxM0/pub%3Foutput%3Dcsv&strip-headers=on',
+    url: 'https://proxy.hxlstandard.org/data.json?url=https%3A//docs.google.com/spreadsheets/d/13PwuKSDfhRc4MjJs_k8dBknFY3lQ7_TyChtS-_uOxM0/pub%3Foutput%3Dcsv&strip-headers=on',
     dataType: 'json',
 });
 
